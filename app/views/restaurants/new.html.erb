@@ -5,7 +5,10 @@
     <%= f.input :name %>
     <%= f.input :address %>
     <%= f.input :phone_number %>
-    <%= f.input :category, collection: Restaurant::CATEGORIES %>
-    <%= f.button :submit %>
+    <%= f.input :category, collection: Restaurant::CATEGORIES, include_blank: false %>
+    <%= f.button :submit, class: "btn btn-primary"%>
   <% end %>
+</div>
+<div class="container">
+  <%= link_to "Back to restaurants", restaurants_path %>
 </div>

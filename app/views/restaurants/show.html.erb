@@ -19,9 +19,19 @@
     <strong>Category:</strong>
     <%= @restaurant.category.capitalize %>
   </p>
+
+  <p>
+    <strong>Reviews and ratings:</strong>
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item">
+        <p>Rating: <%= "⭐️" * review.rating %></p>
+        <p>Review: <%= review.content %></p>
+      </li>
+    <% end %>
+  </p>
+
 </div>
 
 <div class="container">
-  <%= link_to "Back to restaurants", restaurants_path %>
-
+  <%= link_to "Back to restaurants", restaurants_path %> | <%= link_to "Add rating", new_restaurant_review_path(@restaurant) %>
 </div>

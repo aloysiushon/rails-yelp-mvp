@@ -23,5 +23,19 @@ end
 
 puts "Finished!"
 
+puts "Creating reviews and ratings"
+
+Restaurant.all.each do |restaurant|
+  rand(5..15).times do
+    restaurant.reviews.create(
+      rating: rand(1..5),
+      content: Faker::Lorem.paragraph
+    )
+
+  puts "Reviews & ratings with id: #{restaurant.id} has been created"
+  end
+end
+
+puts "Finished!"
     # rating: rand(1..5),
     # content: Faker::Lorem.paragraph
